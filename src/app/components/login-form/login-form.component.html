@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="login">
+        <form class="login__form" [formGroup]="loginForm">
+          <label>Email</label>
+          <input
+            class="form-control mb-4"
+            id="defaultLoginFormEmail"
+            placeholder="E-mail"
+            formControlName="email"
+            type="text" />
+          <p
+            *ngIf="
+              this.loginForm.get('email')?.invalid &&
+              this.loginForm.get('email')?.touched
+            ">
+            Email is required
+          </p>
+
+          <label>Password</label>
+          <input
+            class="form-control mb-4"
+            placeholder="Password"
+            id="defaultLoginFormPassword"
+            formControlName="password"
+            type="password" />
+          <p
+            *ngIf="
+              this.loginForm.get('password')?.invalid &&
+              this.loginForm.get('password')?.touched
+            ">
+            Password is required
+          </p>
+          <button
+            type="button"
+            [disabled]="this.loginForm.invalid"
+            (click)="submitLogin()">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
