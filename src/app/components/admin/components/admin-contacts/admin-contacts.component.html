@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="users" *ngIf="users">
+    <div class="users__card" *ngFor="let user of users | async">
+      <img
+        class="users__card--img"
+        width="350"
+        src="../../../../../assets/images/unknown.jpg"
+        alt="user" />
+      <h1>{{ user.name }}</h1>
+      <button class="btn btn-light" [routerLink]="['user', user.id]">
+        User Details
+      </button>
+    </div>
+  </div>
+</div>

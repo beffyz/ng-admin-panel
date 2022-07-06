@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px;
+  min-height: 100px;
+  color: #ffff;
+  background-color: #000000;
+}
+
+.header__title-box {
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.header__btn-box {
+  display: flex;
+  gap: 20px;
+  margin-top: 210px;
+}

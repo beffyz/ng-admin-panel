@@ -5,6 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -14,10 +16,18 @@ import {
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup = this.fb.group({});
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private authenticationService: AuthenticationService
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
+
+    if (this.authenticationService.isLoggedIn()) {
+      this.router.navigate(['admin']);
+    }
   }
 
   buildForm(): void {
@@ -25,12 +35,15 @@ export class LoginFormComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
+        Validators.pattern(/^[A-Za-z\d]{6,}$/),
       ]),
     });
   }
 
   submitLogin(): void {
-    console.log(this.loginForm.value);
+    this.authenticationService.login(this.loginForm.value).subscribe({
+      next: () => this.router.navigate(['admin']),
+      error: (err) => alert(err.message),
+    });
   }
 }

@@ -1,3 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'assets/styles/normalize.css';
 @import 'assets/styles/flexboxgrid.css';
+
+body {
+  background: #3d3d3d;
+  background: -webkit-linear-gradient(
+      to right,
+      rgb(68, 68, 68),
+      rgb(159, 159, 159)
+  );
+  background: linear-gradient(
+      to right,
+      rgb(65, 65, 65),
+      rgb(134, 134, 134)
+  );
+}

@@ -1,12 +1,28 @@
 .login {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  color: #ffffff;
+  margin-top: 15%;
 }
 
 .login__form {
-  padding: 150px;
+  padding: 125px;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 3px solid #252525;
+  border-radius: 10px;
+  background-color: #868686;
+}
+
+.login__form--title {
+  margin-bottom: 30px;
+}
+
+.login__form--message {
+  height: 10px;
+  margin-bottom: 25px;
+}
+
+.login__form--paragraph {
+  color: #b4b4b4;
 }

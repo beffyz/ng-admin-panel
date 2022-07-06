@@ -2,41 +2,48 @@
   <div class="row">
     <div class="col-md-12">
       <div class="login">
-        <form class="login__form" [formGroup]="loginForm">
+        <form
+          (keydown.enter)="submitLogin()"
+          class="login__form"
+          [formGroup]="loginForm">
+          <h1 class="login__form--title center-md">Log In</h1>
           <label>Email</label>
           <input
-            class="form-control mb-4"
+            class="form-control"
             id="defaultLoginFormEmail"
             placeholder="E-mail"
             formControlName="email"
             type="text" />
-          <p
-            *ngIf="
-              this.loginForm.get('email')?.invalid &&
-              this.loginForm.get('email')?.touched
-            ">
-            Email is required
-          </p>
+          <div class="login__form--message">
+            <p
+              class="login__form--paragraph"
+              *ngIf="
+                this.loginForm.get('email')?.invalid &&
+                this.loginForm.get('email')?.touched
+              ">
+              *Email is required
+            </p>
+          </div>
 
           <label>Password</label>
           <input
-            class="form-control mb-4"
+            class="form-control"
             autocomplete="on"
             placeholder="Password"
             id="defaultLoginFormPassword"
             formControlName="password"
             type="password" />
-          <p
-            *ngIf="
-              this.loginForm.get('password')?.invalid &&
-              this.loginForm.get('password')?.touched
-            ">
-            Password is required
-          </p>
-          <button
-            type="button"
-            [disabled]="this.loginForm.invalid"
-            (click)="submitLogin()">
+          <div class="login__form--message">
+            <p
+              class="login__form--paragraph"
+              *ngIf="
+                this.loginForm.get('password')?.invalid &&
+                this.loginForm.get('password')?.touched
+              ">
+              *Password is required
+            </p>
+          </div>
+          <button class="btn btn-primary" type="button" (click)="submitLogin()">
             Submit
           </button>
         </form>
