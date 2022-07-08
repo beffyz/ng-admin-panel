@@ -6,9 +6,14 @@
           (keydown.enter)="submitLogin()"
           class="login__form"
           [formGroup]="loginForm">
-          <h1 class="login__form--title center-md">Log In</h1>
-          <label>Email</label>
+          <h1
+            i18n="form title | authentication message"
+            class="login__form--title center-md">
+            Log In
+          </h1>
+          <label i18n>Email</label>
           <input
+            i18n-placeholder="From placeholder"
             class="form-control"
             id="defaultLoginFormEmail"
             placeholder="E-mail"
@@ -16,6 +21,7 @@
             type="text" />
           <div class="login__form--message">
             <p
+              i18n
               class="login__form--paragraph"
               *ngIf="
                 this.loginForm.get('email')?.invalid &&
@@ -25,8 +31,11 @@
             </p>
           </div>
 
-          <label>Password</label>
+          <label i18n="password label | message on top of input@@password"
+            >Password</label
+          >
           <input
+            i18n-placeholder="From placeholder"
             class="form-control"
             autocomplete="on"
             placeholder="Password"
@@ -35,6 +44,7 @@
             type="password" />
           <div class="login__form--message">
             <p
+              i18n
               class="login__form--paragraph"
               *ngIf="
                 this.loginForm.get('password')?.invalid &&
@@ -43,7 +53,11 @@
               *Password is required
             </p>
           </div>
-          <button class="btn btn-primary" type="button" (click)="submitLogin()">
+          <button
+            i18n
+            class="btn btn-primary"
+            type="button"
+            (click)="submitLogin()">
             Submit
           </button>
         </form>

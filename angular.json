@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "ng-admin-panel": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ru": "src/locales/messages.ru.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,16 +29,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
+            "ru": {
+              "localize": ["ru"]
+            },
             "production": {
               "budgets": [
                 {
@@ -71,6 +75,9 @@
             "production": {
               "browserTarget": "ng-admin-panel:build:production"
             },
+            "ru": {
+              "browserTarget": "ng-admin-panel:build:ru"
+            },
             "development": {
               "browserTarget": "ng-admin-panel:build:development"
             }
@@ -91,13 +98,8 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         }
